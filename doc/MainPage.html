@@ -78,8 +78,6 @@
     
     <li><a href="#method-i-cases_button">#cases_button</a>
     
-    <li><a href="#method-i-close">#close</a>
-    
     <li><a href="#method-i-favorites_button">#favorites_button</a>
     
     <li><a href="#method-i-go_profile">#go_profile</a>
@@ -102,8 +100,6 @@
     
     <li><a href="#method-i-notes_button">#notes_button</a>
     
-    <li><a href="#method-i-open">#open</a>
-    
     <li><a href="#method-i-password_field">#password_field</a>
     
     <li><a href="#method-i-profile_button">#profile_button</a>
@@ -125,6 +121,10 @@
     <li><a href="./BrowserContainer.html">BrowserContainer</a>
   
     <li><a href="./MainPage.html">MainPage</a>
+  
+    <li><a href="./UserPage.html">UserPage</a>
+  
+    <li><a href="./UserPersonPage.html">UserPersonPage</a>
   
   </ul>
 </nav>
@@ -170,37 +170,6 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-close" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">close</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="close-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 9</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
-  <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">close</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- close-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- close-method -->
-
-    
       <div id="method-i-go_profile" class="method-detail ">
         
         <div class="method-heading">
@@ -217,7 +186,7 @@
 
           
           <div class="method-source-code" id="go_profile-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 35</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">go_profile</span>
   <span class="ruby-identifier">profile_button</span>.<span class="ruby-identifier">click</span>
 <span class="ruby-keyword">end</span></pre>
@@ -247,7 +216,7 @@
 
           
           <div class="method-source-code" id="login-3F-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 25</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login?</span>
   <span class="ruby-identifier">login_button</span>.<span class="ruby-identifier">exist?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -277,7 +246,7 @@
 
           
           <div class="method-source-code" id="login_as-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 18</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login_as</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">pass</span>)
   <span class="ruby-identifier">login_field</span>.<span class="ruby-identifier">send_keys</span> <span class="ruby-identifier">user</span>
   <span class="ruby-identifier">password_field</span>.<span class="ruby-identifier">send_keys</span> <span class="ruby-identifier">pass</span>
@@ -310,7 +279,7 @@
 
           
           <div class="method-source-code" id="login_open-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 14</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login_open</span>
   <span class="ruby-identifier">login_button</span>.<span class="ruby-identifier">click</span>
 <span class="ruby-keyword">end</span></pre>
@@ -340,7 +309,7 @@
 
           
           <div class="method-source-code" id="logout-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 29</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logout</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">login?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
     <span class="ruby-identifier">logout_button</span>.<span class="ruby-identifier">click</span>
@@ -354,37 +323,6 @@
 
         
       </div><!-- logout-method -->
-
-    
-      <div id="method-i-open" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">open</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="open-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">open</span>
-  <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">goto</span> <span class="ruby-constant">URL</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- open-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- open-method -->
 
     
     </section><!-- public-instance-method-details -->
@@ -409,7 +347,7 @@
 
           
           <div class="method-source-code" id="about_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 61</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">about_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:xpath</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;.//*[@id='main-menu']/li[1]/a&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -439,7 +377,7 @@
 
           
           <div class="method-source-code" id="auth_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 57</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">auth_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">frame</span>(<span class="ruby-value">:index</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">element_by_xpath</span>(<span class="ruby-string">&quot;.//*[@id='popup_container']/div[2]/form/fieldset[2]/div[2]/button&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -469,7 +407,7 @@
 
           
           <div class="method-source-code" id="blog_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 77</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">blog_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;social new&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -499,7 +437,7 @@
 
           
           <div class="method-source-code" id="cases_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 81</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">cases_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:xpath</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;cases new&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -529,7 +467,7 @@
 
           
           <div class="method-source-code" id="favorites_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 65</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">favorites_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;favorites&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -559,7 +497,7 @@
 
           
           <div class="method-source-code" id="help_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 89</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">help_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:xpath</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;help&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -589,7 +527,7 @@
 
           
           <div class="method-source-code" id="login_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 41</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:xpath</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;.//*[@id='user_login_info']/a&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -619,7 +557,7 @@
 
           
           <div class="method-source-code" id="login_field-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 49</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login_field</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">frame</span>(<span class="ruby-value">:index</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">element_by_xpath</span>(<span class="ruby-string">&quot;.//*[@id='email']&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -649,7 +587,7 @@
 
           
           <div class="method-source-code" id="logout_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 45</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logout_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:xpath</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;.//*[@id='user_login_info']/a[1]&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -679,7 +617,7 @@
 
           
           <div class="method-source-code" id="notes_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 69</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">notes_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;notes new&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -709,7 +647,7 @@
 
           
           <div class="method-source-code" id="password_field-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 53</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">password_field</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">frame</span>(<span class="ruby-value">:index</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">element_by_xpath</span>(<span class="ruby-string">&quot;.//*[@id='password']&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -739,7 +677,7 @@
 
           
           <div class="method-source-code" id="profile_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 73</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">profile_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;profile&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -769,7 +707,7 @@
 
           
           <div class="method-source-code" id="stats_button-source">
-            <pre><span class="ruby-comment"># File pages/main_page.rb, line 85</span>
+            <pre><span class="ruby-comment"># File pages/main_page.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">stats_button</span>
   <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">element</span>(<span class="ruby-value">:xpath</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;statistics new&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

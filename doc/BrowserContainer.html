@@ -72,6 +72,10 @@
     
     <li><a href="#method-c-new">::new</a>
     
+    <li><a href="#method-i-close">#close</a>
+    
+    <li><a href="#method-i-open">#open</a>
+    
   </ul>
 </nav>
 
@@ -87,6 +91,10 @@
     <li><a href="./BrowserContainer.html">BrowserContainer</a>
   
     <li><a href="./MainPage.html">MainPage</a>
+  
+    <li><a href="./UserPage.html">UserPage</a>
+  
+    <li><a href="./UserPersonPage.html">UserPersonPage</a>
   
   </ul>
 </nav>
@@ -150,6 +158,74 @@
 
     
     </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File pages/browser_container.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- close-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- close-method -->
+
+    
+      <div id="method-i-open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open-source">
+            <pre><span class="ruby-comment"># File pages/browser_container.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open</span>
+  <span class="ruby-ivar">@browser</span>.<span class="ruby-identifier">goto</span> <span class="ruby-constant">URL</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- open-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- open-method -->
+
+    
+    </section><!-- public-instance-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 
