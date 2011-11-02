@@ -25,6 +25,30 @@ class UserPersonPage < UserPage
     specialization_select.select(param)
   end
 
+  def get_phone_text
+    phone_field.value
+  end
+
+  def set_phone(param)
+    phone_field.set(param)
+  end
+
+  def get_first_name_text
+    first_name_field.value
+  end
+
+  def set_first_name(param)
+    first_name_field.set(param)
+  end
+
+  def get_last_name_text
+    last_name_field.value
+  end
+
+  def set_last_name(param)
+    last_name_field.set(param)
+  end
+
   private
 
   def avatar_field
@@ -49,5 +73,29 @@ class UserPersonPage < UserPage
 
   def specialization_select
     @browser.select(:name => "data[specialization_id]")
+  end
+
+  def phone_field
+    @browser.text_field(:id => "phone")
+  end
+
+  def password_field
+    @browser.text_field(:xpath => ".//*[@id='module_content']/div/div/form/table/tbody/tr[4]/td[1]/label/span[2]/span/input[2]")
+  end
+
+  def password_re_field
+    @browser.text_field(:xpath => ".//*[@id='module_content']/div/div/form/table/tbody/tr[4]/td[3]/label/span[2]/span/input[2]")
+  end
+
+  def submit_button
+    @browser.text_field(:xpath => ".//*[@id='module_content']/div/div/form/table/tbody/tr[5]/td[3]/div/span/span/button")
+  end
+
+  def notification_popap
+    @browser.element(:xpath => ".//*[@id='liquid_column']/div[1]/div")
+  end
+
+  def allow_news_checkbox
+    @browser.checkbox(:name => "data[allow_news]")
   end
 end
