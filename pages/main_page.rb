@@ -1,25 +1,11 @@
+#encoding: utf-8
+
 class MainPage < BrowserContainer
+  include Login
   URL = "http://docs.pravo.ru"
-
-  def open
-    @browser.goto URL
-    self
-  end
-
-  def close
-    @browser.close
-    self
-  end
 
   def login_open
     login_button.click
-  end
-
-  def login_as(user, pass)
-    login_field.send_keys user
-    password_field.send_keys pass
-    auth_button.click
-    Watir::Wait.until {profile_button.exist?}
   end
 
   def login?
@@ -34,6 +20,7 @@ class MainPage < BrowserContainer
 
   def go_profile
     profile_button.click
+    UserPagePerson.new(@browser)
   end
 
   private
@@ -44,18 +31,6 @@ class MainPage < BrowserContainer
 
   def logout_button
     @browser.element(:xpath => ".//*[@id='user_login_info']/a[1]")
-  end
-
-  def login_field
-    @browser.frame(:index, 1).element_by_xpath(".//*[@id='email']")
-  end
-
-  def password_field
-    @browser.frame(:index, 1).element_by_xpath(".//*[@id='password']")
-  end
-
-  def auth_button
-    @browser.frame(:index, 1).element_by_xpath(".//*[@id='popup_container']/div[2]/form/fieldset[2]/div[2]/button")
   end
 
   def about_button

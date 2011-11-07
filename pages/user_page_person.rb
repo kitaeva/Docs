@@ -1,4 +1,5 @@
-class UserPersonPage < UserPage
+#encoding: utf-8
+class UserPagePerson < UserPage
 
   def set_avatar(param)
     path = Dir.pwd
