@@ -23,6 +23,10 @@ class MainPage < BrowserContainer
     UserPagePerson.new(@browser)
   end
 
+  def profile_exist?
+    profile_button.exist?
+  end
+
   private
 
   def login_button
