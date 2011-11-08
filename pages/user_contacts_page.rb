@@ -1,5 +1,6 @@
 #encoding: utf-8
-class UserPageContacts < UserPage
+require "user_page"
+class UserContactsPage < UserPage
 
   def set_user_search_text(param)
     user_search_field.set(param)

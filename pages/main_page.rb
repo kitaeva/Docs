@@ -1,4 +1,6 @@
 #encoding: utf-8
+require "browser_container"
+require "login_page"
 
 class MainPage < BrowserContainer
   include Login
@@ -20,7 +22,7 @@ class MainPage < BrowserContainer
 
   def go_profile
     profile_button.click
-    UserPagePerson.new(@browser)
+    UserPersonPage.new(@browser)
   end
 
   def profile_exist?

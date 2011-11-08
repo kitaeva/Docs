@@ -1,19 +1,20 @@
 #encoding: utf-8
+require "browser_container"
 class UserPage < BrowserContainer
 
   def goto_my_data
     my_data_button.click
-    UserPagePerson.new(@browser)
+    UserPersonPage.new(@browser)
   end
 
   def goto_my_contact
     my_contact_button.click
-    UserPageContacts.new(@browser)
+    UserContactsPage.new(@browser)
   end
 
   def goto_my_company
     my_company_button.click
-    UserPageCompany.new(@browser)
+    UserCompanyPage.new(@browser)
   end
 
   def contact_invite?
