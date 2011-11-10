@@ -1,6 +1,6 @@
 #encoding: utf-8
-require "browser_container"
-require "login_page"
+#require "browser_container.rb"
+#require "login_page.rb"
 
 class MainPage < BrowserContainer
   include Login
@@ -21,14 +21,29 @@ class MainPage < BrowserContainer
   end
 
   def go_profile
+    #UsePagerPerson.new(@browser)
     profile_button.click
-    UserPersonPage.new(@browser)
   end
 
-  def profile_exist?
-    profile_button.exist?
+  def profile_button_exist?
+    begin
+      sleep 2
+      profile_button.exist?
+    rescue Selenium::WebDriver::Error::ObsoleteElementError
+      sleep 2
+      profile_button.exist?
+    end
   end
 
+  def profile_button_visible?
+    begin
+      sleep 2
+      profile_button.visible?
+    rescue Selenium::WebDriver::Error::ObsoleteElementError
+      sleep 2
+      profile_button.visible?
+    end
+  end
   private
 
   def login_button
@@ -52,7 +67,7 @@ class MainPage < BrowserContainer
   end
 
   def profile_button
-    @browser.element(:class => "profile")
+    @browser.element(:xpath => ".//*[@id='main-menu']/li[4]/a")
   end
 
   def blog_button

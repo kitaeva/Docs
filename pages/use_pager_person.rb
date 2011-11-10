@@ -1,6 +1,6 @@
 #encoding: utf-8
-require "user_page"
-class UserPersonPage < UserPage
+#require "user_page.rb"
+class UsePagerPerson < UserPage
 
   def set_avatar(param)
     path = Dir.pwd
@@ -51,6 +51,9 @@ class UserPersonPage < UserPage
     last_name_field.set(param)
   end
 
+  def save
+    submit_button.click
+  end
   private
 
   def avatar_field
@@ -90,7 +93,7 @@ class UserPersonPage < UserPage
   end
 
   def submit_button
-    @browser.text_field(:xpath => ".//*[@id='module_content']/div/div/form/table/tbody/tr[5]/td[3]/div/span/span/button")
+    @browser.button(:type => "submit")
   end
 
   def notification_popap

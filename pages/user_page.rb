@@ -1,15 +1,15 @@
 #encoding: utf-8
-require "browser_container"
+#require "browser_container.rb"
 class UserPage < BrowserContainer
 
   def goto_my_data
     my_data_button.click
-    UserPersonPage.new(@browser)
+    UsePagerPerson.new(@browser)
   end
 
   def goto_my_contact
     my_contact_button.click
-    UserContactsPage.new(@browser)
+    UserPageContacts.new(@browser)
   end
 
   def goto_my_company

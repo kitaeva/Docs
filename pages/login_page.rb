@@ -15,7 +15,31 @@ module Login
     password_field.text
   end
 
+  def login_field_exist?
+    begin
+      sleep 2
+      login_field.exist?
+    rescue Selenium::WebDriver::Error::ObsoleteElementError
+      sleep 2
+      login_field.exist?
+    end
+  end
+
+  def login_iframe_exist?
+    begin
+      sleep 2
+      login_iframe.exist?
+    rescue Selenium::WebDriver::Error::ObsoleteElementError
+      sleep 2
+      login_iframe.exist?
+    end
+  end
+
   private
+
+  def login_iframe
+    @browser.frame(:index => 1)
+  end
 
   def login_field
     @browser.frame(:index => 1).text_field(:id => "email")
@@ -26,7 +50,7 @@ module Login
   end
 
   def auth_button
-    @browser.frame(:index => 1).button(:tag_name => "Войти")
+    @browser.frame(:index => 1).button(:type => "submit")
   end
 
   def remember_checkbox

@@ -13,4 +13,8 @@ class BrowserContainer
     @browser.close
     self
   end
+
+  def refresh
+    @browser.refresh
+  end
 end
