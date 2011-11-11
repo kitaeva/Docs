@@ -11,7 +11,7 @@ class MainPage < BrowserContainer
   end
 
   def login?
-    login_button.exist?
+    welcome_button.exist?
   end
 
   def logout
@@ -44,10 +44,29 @@ class MainPage < BrowserContainer
       profile_button.visible?
     end
   end
+
+  def search_input_focus
+    search_input.click
+  end
+
+  def go_profile_welcome
+    welcome_button.click
+  end
+
   private
+
+  def
+
+  def search_input
+    @browser.input(:id => "ac_big-field")
+  end
 
   def login_button
     @browser.element(:xpath => ".//*[@id='user_login_info']/a")
+  end
+
+  def welcome_button
+    @browser.element(:xpath => ".//*[@id='user_login_info']/a[2]")
   end
 
   def logout_button
@@ -85,5 +104,6 @@ class MainPage < BrowserContainer
   def help_button
     @browser.element(:xpath => "help")
   end
+
 
 end
