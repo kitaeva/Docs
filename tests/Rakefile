@@ -1,8 +1,20 @@
-task :cucumber do
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+require "rake"
+
+task :all do
   dir = File.dirname(__FILE__)
   Dir["#{dir}/*"].each do |f|
     if File.directory?(f)
-      rake("features")
+      Dir.chdir(f) do
+        rake("all")
+      end
     end
   end
+end
+
+
+def rake(args)
+  ruby($0, args)
 end

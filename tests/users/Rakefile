@@ -3,6 +3,6 @@ require 'cucumber'
 require 'cucumber/rake/task'
 require "rake"
 
-Cucumber::Rake::Task.new(:features) do |t|
+Cucumber::Rake::Task.new(:all) do |t|
   t.cucumber_opts = "features --format pretty"
 end
