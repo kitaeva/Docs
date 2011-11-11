@@ -1,23 +1,33 @@
 #encoding: utf-8
 Given /^I am on the user person page$/ do
   @browsers.each do |browsers|
-    browsers.goto "http://docs.pravo.ru"
+    browsers.goto @url
     main_page = MainPage.new(browsers)
-    main_page.login_open
-    Watir::Wait.until {main_page.login_field_exist?}
-    main_page.login_as("elufimov@gmail.com", "zxx")
-    Watir::Wait.until {main_page.profile_button_exist?}
-    Watir::Wait.until {main_page.profile_button_visible?}
-    main_page.go_profile
+    if main_page.login? == false
+      main_page.login_open
+      Watir::Wait.until {main_page.login_field_exist?}
+      main_page.login_as(@first_user.fetch(0), @first_user.fetch(1))
+      Watir::Wait.until {main_page.profile_button_exist?}
+      Watir::Wait.until {main_page.profile_button_visible?}
+      main_page.go_profile
+    else
+      main_page.go_profile_welcome
+    end
   end
 end
 
-When /^I change the name$/ do
+When /^I change the (.+)$/ do |field|
   @browsers.each do |browser|
     user_page_person = UsePagerPerson.new(browser)
-    @default_name = user_page_person.get_first_name_text
-    user_page_person.set_first_name("Михаилл")
-    @changed_name = user_page_person.get_first_name_text
+    if field == "name"
+      @default_name = user_page_person.get_first_name_text
+      user_page_person.set_first_name(@first_user.fetch(2)+"k")
+      @changed_name = user_page_person.get_first_name_text
+    elsif field == "surname"
+      @default_surname = user_page_person.get_last_name_text
+      user_page_person.set_last_name(@first_user.fetch(3)+"k")
+      @changed_surname = user_page_person.get_last_name_text
+    end
   end
 end
 
@@ -28,9 +38,13 @@ When /^click save button$/ do
   end
 end
 
-Then /^name must be preserved$/ do
+Then /^(\w+) must be preserved$/ do |field|
   @browsers.each do
-    @default_name != @changed_name
+    if field == "name"
+      @default_name != @changed_name
+    elsif field == "surname"
+      @default_surname != @changed_surname
+    end
   end
 end
 
@@ -41,17 +55,25 @@ When /^I refresh page$/ do
   end
 end
 
-Then /^name should not change$/ do
+Then /^(\w+) should not change$/ do |field|
   @browsers.each do |browser|
     user_page_person = UsePagerPerson.new(browser)
-    @changed_name == user_page_person.get_first_name_text
+    if field == "name"
+      @changed_name == user_page_person.get_first_name_text
+    elsif field == "surname"
+      @changed_surname == user_page_person.get_last_name_text
+    end
   end
 end
 
-Then /^I revert name$/ do
+Then /^I revert (.+)$/ do |field|
   @browsers.each do |browser|
     user_page_person = UsePagerPerson.new(browser)
-    user_page_person.set_first_name(@default_name)
+    if field == "name"
+      user_page_person.set_first_name(@default_name)
+    elsif field == "surname"
+      user_page_person.set_last_name(@default_surname)
+    end
     user_page_person.save
   end
 end
