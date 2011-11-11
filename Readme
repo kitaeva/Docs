@@ -1,0 +1,42 @@
+*Что это?
+Docs - Проект автоматического тестирования пользовательского интерфейса портала СПС.Право.RU
+
+*Что внутри?
+В ходе написания тестов использовались:
+ - Cucumber тестовый движок http://cukes.info/
+ - Rake инструмент для автоматизации сборки программного кода http://rake.rubyforge.org/
+ - Selenium Grid инструмент для синхронного и контролируемого запуска тестов на разных платформах и машинах. http://selenium-grid.seleniumhq.org/
+ - Page Object & Page Factory паттерны описание элементов интерфейса http://code.google.com/p/selenium/wiki/PageObjects
+ - Watir Webdriver Web Application Testing in Ruby
+
+*Как настроить?
+Необходимые компоненты:
+Selenium Server Standalone http://code.google.com/p/selenium/downloads/list
+Chromedriver Win http://code.google.com/p/chromium/downloads/list
+Ruby 1.9.3
+    - watir-webdriver
+    - selenium-webdriver
+    - cucumber
+    - rake
+    - rspec
+    - rack
+
+Запуск Grid:
+Для запуска запуска Selenium Grid должны запустить скачанный нами ранее selenium-server-standalone.jar два раза
+java -jar selenium-server-hub.jar -role hub
+и
+java -jar selenium-server-webdriver.jar -role webdriver -hub http://localhost:4444/grid/register -port 5556 -browser "browserName=firefox,version=8,maxInstances=5,platform=WINDOWS" -browser "browserName=chrome,maxInstances=5,platform=WINDOWS" -browser "browserName=opera,maxInstances=5,platform=WINDOWS" -browser "browserName=internet explorer,maxInstances=5,platform=WINDOWS"
+Это даст нам сеть из Chrome, FireFox, Opera, IE по пять штук.
+
+Chromedriver:
+Скачанный файл нужно добавить в CLASSPATH
+
+Internet Explorer:
+selenium-server-standalone.jar нужно добавить в CLASSPATH
+
+Конфигурация:
+
+*Как запустить?
+Для запуска нужно перейти в директорию test и выполнить
+rake all - запуск тестов с записью логов в xml
+rake debug - запуск тесто с выводом логов в консоль
