@@ -1,0 +1,10 @@
+<cruisecontrol>
+    <project name="Docs" requireModification ="No">
+        <schedule interval="60">
+            <rake ruby="ruby" rake="rake" target="all" workingDir="projects/${project.name}/tests/"/>
+        </schedule>
+		<log>
+            <merge dir="projects/${project.name}/logs/"/>
+        </log>
+    </project>
+</cruisecontrol>

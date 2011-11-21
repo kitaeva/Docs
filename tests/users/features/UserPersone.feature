@@ -1,3 +1,4 @@
+@UserPerson
 Feature: UserPerson
   Changing information in the profile
 

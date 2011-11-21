@@ -3,13 +3,20 @@ require 'cucumber'
 require 'cucumber/rake/task'
 require "rake"
 
-Cucumber::Rake::Task.new(:debug) do |t|
-  t.cucumber_opts = "features --format pretty"
+options = [
+    "MainPage",
+    "UserPerson"
+          ]
+
+options.each do |name|
+  Cucumber::Rake::Task.new(:debug) do |t|
+    t.cucumber_opts = "features --format pretty -n "+name
+  end
 end
 
-Cucumber::Rake::Task.new(:all) do |t|
-  log_dir = Dir[File.dirname(__FILE__) + '/../../logs/'].first
-  p log_dir
-  t.cucumber_opts = "features --format junit --out "+"'"+log_dir+""
+options.each do |name|
+  Cucumber::Rake::Task.new(:all) do |t|
+    log_dir = Dir[File.dirname(__FILE__) + '/../../logs/'].first
+    t.cucumber_opts = "--format junit -n "+name+" --out "+"'"+log_dir+"'"
+  end
 end
-

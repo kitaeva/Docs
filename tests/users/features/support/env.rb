@@ -11,17 +11,28 @@ hub_urls = config["hub_url"]
 browser_ff = Watir::Browser.new(:remote, :url => hub_urls+"/wd/hub", :desired_capabilities => :firefox)
 #browser_op = Watir::Browser.new(:remote, :url => hub_urls+"/wd/hub", :desired_capabilities => :opera)
 browser_ch = Watir::Browser.new(:remote, :url => hub_urls+"/wd/hub", :desired_capabilities => :chrome)
-browsers = [browser_ch, browser_ff]
+browsers = [[browser_ch, "ch"], [browser_ff, "ff"]]
 
-Before do
+Before('@MainPage') do
+  browser_ff.close
+  browsers.delete_at(1)
   @url = config["urls"].fetch(0)
   @first_user = config["users"].fetch(1)
   @browsers = browsers
+  @browser_ch = browser_ch
 end
+
+Before('@UserPerson') do
+  @url = config["urls"].fetch(0)
+  @first_user = config["users"].fetch(1)
+  @browsers = browsers
+  @browser_ch = browser_ch
+  @browser_ff = browser_ff
+end
+
 
 at_exit do
   browsers.each do |browser|
-    browser.close
+    browser.fetch(0).close
   end
 end
-
